@@ -1,0 +1,35 @@
+def analyze_result(name, roll, marks):
+    total = sum(marks)
+    average = total / len(marks)
+    if average >= 90:
+        grade = "A"
+    elif average >= 75:
+        grade = "B"
+    elif average >= 60:
+        grade = "C"
+    elif average >= 40:
+        grade = "D"
+    else:
+        grade = "Fail"
+    print("\n----- Student Result -----")
+    print("Student Name :", name)
+    print("Roll Number  :", roll)
+    print("Total Marks  :", total)
+    print("Average      :", average)
+    print("Grade        :", grade)
+    print("\nSubjects Below 40:")
+    found = False
+    for i in range(len(marks)):
+        if marks[i] < 40:
+            print("Subject", i + 1)
+            found = True
+    if found == False:
+        print("None")
+name = input("Enter student name : ")
+roll = int(input("Enter roll number : "))
+marks = []
+print("Enter 5 subject marks")
+for i in range(5):
+    mark = float(input("Enter mark : "))
+    marks.append(mark)
+analyze_result(name, roll, marks)
